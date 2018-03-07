@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>
+
+
+<div class="alert alert-info" style="display:none" role="alert">Someone has posted something in this room.</div>
+
+
+<div class="row" data-rooms-id="<%= @rooms.id %>"></div>
