@@ -1,4 +1,4 @@
-App.rooms = App.cable.subscriptions.create("RoomsChannel", {
+App.rooms = App.cable.subscriptions.create("RoomChannel", {
   connected: function() {
     // Called when the subscription is ready for use on the server
   },
@@ -16,12 +16,12 @@ App.rooms = App.cable.subscriptions.create("RoomsChannel", {
 
   listen_to_messages: function() {
     return this.perfom('listen', {
-      rooms_id: $("[data-rooms-id]").data("rooms-id")
+      room_id: $("[data-room-id]").data("room-id")
     });
   }
 
 });
 
 $(document).on('turbolinks:load', function() {
-  App.rooms.listen_to_messages();
+  App.room.listen_to_messages();
 });

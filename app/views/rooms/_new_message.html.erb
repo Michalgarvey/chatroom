@@ -1,0 +1,15 @@
+<div class="room-message">
+  <% if signed_in? %>
+    <h3>Have your say....<%= @room.name%></h3>
+    <%= form_for([@room, @room.messages.build], remote: true) do |f| %>
+      <p>
+        <%= f.label :body, "Messages" %>
+        <%= f.text_area :body %>
+      </p>
+      <br>
+      <p>
+        <%= f.submit "Submit" %>
+      </p>
+    <% end %>
+  <% end %>
+</div>

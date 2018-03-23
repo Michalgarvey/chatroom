@@ -12,6 +12,9 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
+        <td><%= image_tag(room.image_url, class: "img-responsive", size: '300x300') %></td>
+        <td><%= room.name %></td>
+        <td><%= room.description %></td>
         <td><%= link_to 'Show', room %></td>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>
         <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>

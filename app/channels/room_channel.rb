@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file.
 # Action Cable runs in a loop that does not support auto reloading.
-class RoomsChannel < ApplicationCable::Channel
+class RoomChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
 
@@ -12,7 +12,7 @@ class RoomsChannel < ApplicationCable::Channel
 
   def listen(data)
     stop_all_streams
-    stream_for data["rooms_id"]
+    stream_for data["room_id"]
 
   end
 

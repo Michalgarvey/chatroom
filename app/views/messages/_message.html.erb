@@ -1,1 +1,14 @@
-<% if current_user && current.user.admin? %>
+<div class="row">
+  <hr>
+  <p><%= message.user.first_name %>
+    <small><em>
+      <%= "#{time_ago_in_words(message.created_at)} ago" %>
+    </em></small>
+  </p>
+  <p>
+    <%= message.body %>
+  </p>
+
+  <p>
+    <%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, message, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>

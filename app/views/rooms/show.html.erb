@@ -3,8 +3,14 @@
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
 
+<div class="row" data-room-id="<%= @room.id %>">
+  <%= @room.name %>
+  <%= image_tag(@room.image_url, class: "img-responsive", size: '300x300') %>
+  <%= @room.description %>
+</div>
+
 
 <div class="alert alert-info" style="display:none" role="alert">Someone has posted something in this room.</div>
 
-
-<div class="row" data-rooms-id="<%= @rooms.id %>"></div>
+<%= render 'new_message' %>
+<%= render 'messages' %>

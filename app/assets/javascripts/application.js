@@ -12,4 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
+
+$(document).on('turbolinks:load ajaxSuccess', function() {
+  });

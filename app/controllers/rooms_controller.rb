@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    @messages = @room.messages.order("created_at DESC")
   end
 
   # GET /rooms/new
@@ -24,7 +25,7 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(params[:rooms])
+    @room = Room.create(rooms_params)
 
     respond_to do |format|
       if @room.save
@@ -41,7 +42,7 @@ class RoomsController < ApplicationController
   # PATCH/PUT /rooms/1.json
   def update
     respond_to do |format|
-      if @room.update(room_params)
+      if @room.update(rooms_params)
         format.html { redirect_to @room, notice: 'Room was successfully updated.' }
         format.json { render :show, status: :ok, location: @room }
       else
@@ -63,7 +64,7 @@ class RoomsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def room_params
+    def rooms_params
       params.require(:room).permit(:name, :image_url, :description)
     end
 
